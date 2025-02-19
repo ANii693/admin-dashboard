@@ -71,7 +71,7 @@ const UpdateProduct = ({ id }: idType) => {
     const productName = data.productName;
     const price = data.price ? Number(data.price) : myproduct?.price
     const oldPrice = myproduct?.oldPrice;
-    const productQuantity = data.productQuantity ? Number(data.productQuantity) : myproduct?.productQuantity
+    // const productQuantity = data.productQuantity ? Number(data.productQuantity) : myproduct?.productQuantity
     const categoryName = data.categoryName;
     const subcategoryName = data.subcategoryName;
     const productDetails = data.productDetails ? data.productDetails : myproduct.productDetails;

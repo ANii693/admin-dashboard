@@ -14,7 +14,6 @@ export interface ProductType {
   productDetails: string;
   productImages: string[];
   productName: string;
-  productQuantity: number;
   subcategoryName: string;
   img: string;
   date: string;
@@ -22,6 +21,7 @@ export interface ProductType {
   offerPersent: number;
   rettings: number[];
   productStatus: string;
+  submissionDate: string;
 }
 
 export interface ShipMentStatus {
