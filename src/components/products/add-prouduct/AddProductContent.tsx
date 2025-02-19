@@ -19,13 +19,14 @@ interface FormData {
   productName: string;
   price: number;
   oldPrice: number;
-  productQuantity: number;
+  // productQuantity: number;
   categoryName: string;
   subcategoryName: string;
   productDetails: string;
   productImages: any[];
   img: string;
   date: string;
+  submissionDate: string;
   offer: boolean;
   offerPersent: number;
   rettings: number[];
@@ -72,16 +73,16 @@ const AddProductContent = () => {
     const productName = data.productName;
     const price = Number(data.price);
     const oldPrice = 0;
-    const productQuantity = Number(data.productQuantity);
+    // const productQuantity = Number(data.productQuantity);
     const categoryName = selectedCategory;
     const subcategoryName = selectedsubCategory;
     const productDetails = data.productDetails;
-
+    const submissionDate = data.submissionDate;
     const productInfo = {
       productName,
       price,
       oldPrice,
-      productQuantity,
+      // productQuantity,
       subcategoryName,
       categoryName,
       productDetails,
@@ -92,6 +93,7 @@ const AddProductContent = () => {
       offerPersent: 0,
       rettings: [],
       productStatus: "new",
+      submissionDate,
     };
     axios
       .post(
@@ -151,7 +153,7 @@ const AddProductContent = () => {
       });
   };
 
-  
+
 
   useEffect(() => {
     axios
@@ -216,8 +218,8 @@ const AddProductContent = () => {
     return <div>Error: {error}</div>;
   }
 
-  const selectHandler = () => {};
-  const selectHandlerTwo = () => {};
+  const selectHandler = () => { };
+  const selectHandlerTwo = () => { };
   return (
     <>
       <form
@@ -270,7 +272,7 @@ const AddProductContent = () => {
                 </div>
               </div>
             </div>
-            <div className="lg:col-span-4 md:col-span-6 col-span-12">
+            {/* <div className="lg:col-span-4 md:col-span-6 col-span-12">
               <div className="cashier-select-field mb-5">
                 <h5 className="text-[15px] text-heading font-semibold mb-3">
                   {" "}
@@ -291,7 +293,7 @@ const AddProductContent = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="lg:col-span-4 md:col-span-6 col-span-12">
               <div className="cashier-select-field mb-5">
@@ -307,7 +309,7 @@ const AddProductContent = () => {
                     setapiEndPoint={setSelectedCategory}
                     className="block"
                     placeholder="Select Category"
-                  /> 
+                  />
 
                 </div>
                 {
@@ -332,10 +334,25 @@ const AddProductContent = () => {
                     placeholder={subCategories?.length ? `Choose Brand` : "Info : Select Category First, From Category Field"}
                   />
                 </div>
-                
+
               </div>
             </div>
-
+            <div className="lg:col-span-4 md:col-span-6 col-span-12">
+              <div className="cashier-select-field mb-5">
+                <h5 className="text-[15px] text-heading font-semibold mb-3">
+                  Submission Date
+                </h5>
+                <div className="cashier-input-field-style">
+                  <div className="single-input-field w-full">
+                    <input
+                      type="date"
+                      {...register("submissionDate", { required: "Submission date is required" })}
+                    />
+                    {errors.submissionDate && <span>{errors.submissionDate.message}</span>}
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="lg:col-span-4 md:col-span-6 col-span-12">
               <div className="cashier-select-field mb-5">
                 <h5 className="text-[15px] text-heading font-semibold mb-3">
@@ -455,6 +472,7 @@ const AddProductContent = () => {
                 </div>
               </div>
             </div>
+           
             <div className="lg:col-span-12 md:col-span-6 col-span-12">
               <div className="cashier-select-field mb-5">
                 <h5 className="text-[15px] text-heading font-semibold mb-3">

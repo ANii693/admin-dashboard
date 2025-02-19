@@ -12,5 +12,5 @@ export interface FormData {
     offerPersent:number;
     rettings:number[];
     productStatus:string;
-    
+    submissionDate:string;
   }

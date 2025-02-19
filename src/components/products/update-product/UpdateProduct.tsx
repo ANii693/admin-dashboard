@@ -75,13 +75,14 @@ const UpdateProduct = ({ id }: idType) => {
     const categoryName = data.categoryName;
     const subcategoryName = data.subcategoryName;
     const productDetails = data.productDetails ? data.productDetails : myproduct.productDetails;
-
+    const submissionDate = data.submissionDate;
     const productInfo = {
       id: myproduct?._id,
       productName,
       price,
       oldPrice,
-      productQuantity,
+      // productQuantity,
+      submissionDate,
       subcategoryName,
       categoryName,
       productDetails,
@@ -194,8 +195,24 @@ const UpdateProduct = ({ id }: idType) => {
                   </div>
                 </div>
               </div>
-
               <div className="lg:col-span-4 md:col-span-6 col-span-12">
+              <div className="cashier-select-field mb-5">
+                <h5 className="text-[15px] text-heading font-semibold mb-3">
+                  Submission Date
+                </h5>
+                <div className="cashier-input-field-style">
+                  <div className="single-input-field w-full">
+                    <input
+                      type="date"
+                      defaultValue={myproduct?.submissionDate}
+                      {...register("submissionDate", { required: "Submission date is required" })}
+                    />
+                    {errors.submissionDate && <span>{errors.submissionDate.message}</span>}
+                  </div>
+                </div>
+              </div>
+            </div>
+              {/* <div className="lg:col-span-4 md:col-span-6 col-span-12">
                 <div className="cashier-select-field mb-5">
                   <h5 className="text-[15px] text-heading font-semibold mb-3">
                     {" "}
@@ -217,7 +234,7 @@ const UpdateProduct = ({ id }: idType) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="lg:col-span-4 md:col-span-6 col-span-12">
                 <div className="cashier-select-field mb-5">
