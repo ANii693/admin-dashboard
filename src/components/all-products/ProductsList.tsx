@@ -111,7 +111,7 @@ const ProductsList = () => {
     },
   ];
 
-  const selectHandler = () => {};
+  const selectHandler = () => { };
   return (
     <>
       <div className="cashier-content-area mt-[30px] px-7">
@@ -152,7 +152,7 @@ const ProductsList = () => {
                         <h5>Offer Status</h5>
                       </div>
                       <div className="cashier-salereturns-table-warehouseF">
-                        <h5>Stock</h5>
+                        <h5>Last Date To submit</h5>
                       </div>
 
                       <div className="cashier-salereturns-table-actionF">
@@ -190,10 +190,8 @@ const ProductsList = () => {
                             </span>
                           </div>
                           <div className="cashier-salereturns-table-warehouseF">
-                            
-                            {
-                              item?.productQuantity > 0 ? <> <span> {item.productQuantity} </span>  </> : <> <span> Out Of Stock </span> </>
-                            }
+
+                            {item?.submissionDate}
                           </div>
                           <div className="cashier-salereturns-table-actionF">
                             <div className="dropdown">
@@ -207,11 +205,10 @@ const ProductsList = () => {
                               <div
                                 className="dropdown-list"
                                 style={{
-                                  display: `${
-                                    item._id === match && open
+                                  display: `${item._id === match && open
                                       ? "block"
                                       : "none"
-                                  }`,
+                                    }`,
                                 }}
                               >
                                 <button className="dropdown-menu-item">
@@ -226,24 +223,20 @@ const ProductsList = () => {
                                     Edit
                                   </Link>
                                 </button>
-                                {item?.productQuantity > 0 ? (
-                                  <>
-                                    <button className="dropdown-menu-item">
-                                      <Image
-                                        src={updateIcon}
-                                        alt="icon not found"
-                                      />
 
-                                      <Link
-                                        href={`/product/product-featured/${item._id}`}
-                                      >
-                                        Featured / Offer
-                                      </Link>
-                                    </button>
-                                  </>
-                                ) : (
-                                  <></>
-                                )}
+                                <button className="dropdown-menu-item">
+                                  <Image
+                                    src={updateIcon}
+                                    alt="icon not found"
+                                  />
+
+                                  <Link
+                                    href={`/product/product-featured/${item._id}`}
+                                  >
+                                    Featured / Offer
+                                  </Link>
+                                </button>
+
                                 <button
                                   onClick={() => handleDeleteProduct(item._id)}
                                   className="dropdown-menu-item"
